@@ -41,21 +41,43 @@ print(xpath)
 navegador.find_element(By.XPATH,xpath).click()#Clicar
 navegador.find_element(By.XPATH,xpath).click()#Clicar
 sleep(0.7)
-navegador.find_element(By.XPATH,'/html/body/div[2]/div/div[2]/div[1]/button[2]').click()#Cliar em editar / Abrir OS cliente
+navegador.find_element(By.XPATH,'/html/body/div[2]/div/div[2]/div[1]/button[2]').click()#Cliar em editar /
+sleep(1.5)
 nome = navegador.find_element(By.XPATH,'/html/body/form[2]/div[3]/div[1]/dl[6]/dd/input[2]')
 contrato = navegador.find_element(By.XPATH,'/html/body/form[2]/div[3]/div[1]/dl[10]/dd/input')
+print (nome,contrato)
 
 def gerar_login(nome,contrato):
-   nomes = nome.split()
+   nomes = str(nome).split()
    login = ''
    for x in nomes:
       login = login + x[0]
       pass
-   login = login+contrato
+   login = login+str(contrato)
    return login
+login = gerar_login(nome,contrato)
 
 navegador.find_element(By.XPATH,'/html/body/form[2]/div[3]/div[1]/dl[6]/dd/button[2]/img').click() #Abrir cliente
+sleep(1.5)
 navegador.find_element(By.XPATH,'/html/body/form[3]/div[3]/ul/li[8]/a').click() #clicar em login
+sleep(0.8)
+navegador.find_element(By.XPATH,'/html/body/form[3]/div[3]/div[8]/dl/div/div/div[2]/div[1]/button[1]').click() #Novo Login
+sleep(1.5)
+navegador.find_element(By.XPATH,'/html/body/form[4]/div[3]/div[1]/dl[7]/dd/input[1]').send_keys(contrato)#Preencher contrato
+sleep(1)
+navegador.find_element(By.XPATH,'/html/body/form[4]/div[3]/div[1]/dl[10]/dd/button[2]').click() #Abrir Planos
+sleep(1)
+navegador.find_element(By.XPATH,'/html/body/div[12]/div/div[3]/span[1]/i[3]').click()
+sleep(1)
+navegador.find_element(By.XPATH,'/html/body/div[12]/div/div[6]/table/tbody/tr/td[2]/div').click()
+sleep(1)
+navegador.find_element(By.XPATH,'/html/body/div[12]/div/div[2]/div[1]/button[2]').click()
+sleep(1)
+navegador.find_element(By.XPATH,'/html/body/div[12]/div/div[1]/div[2]/a[2]').click()
+sleep(0.5)
+login = gerar_login(nome,contrato)
+navegador.find_element(By.XPATH,'/html/body/form[4]/div[3]/div[1]/dl[11]/dd/input').send_keys(login)
+navegador.find_element(By.XPATH,'/html/body/form[4]/div[3]/div[1]/dl[14]/dd/button[1]').click()
 
 def verificar_contratos(contrato):
    for i in range(12):
@@ -83,9 +105,8 @@ def verificar_contratos(contrato):
          btnctt = tk.Button(Janela, command=Janela2.destroy())
          btnctt.grid(column=2, row=0)
          Janela2.mainloop()
-      elif:
-
-
+      else:
+         pass
       pass
 
 
