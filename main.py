@@ -43,8 +43,8 @@ navegador.find_element(By.XPATH,xpath).click()#Clicar
 sleep(0.7)
 navegador.find_element(By.XPATH,'/html/body/div[2]/div/div[2]/div[1]/button[2]').click()#Cliar em editar /
 sleep(1.5)
-nome = navegador.find_element(By.XPATH,'/html/body/form[2]/div[3]/div[1]/dl[6]/dd/input[2]')
-contrato = navegador.find_element(By.XPATH,'/html/body/form[2]/div[3]/div[1]/dl[10]/dd/input')
+nome = navegador.__get_attribute(By.XPATH,'/html/body/form[2]/div[3]/div[1]/dl[6]/dd/input[2]')
+contrato = navegador.get_attibute(By.XPATH,'/html/body/form[2]/div[3]/div[1]/dl[10]/dd/input')
 print (nome,contrato)
 
 def gerar_login(nome,contrato):
