@@ -8,19 +8,16 @@ def inciarnav():
    return WebDriver
 
 def gerar_login(nome,contrato):
-   nomes = str(nome).split()
+   nomes = str(nome).split()   #Separar o nome completo em nomes
    login = ''
-   for x in nomes:
-      login = login + x[0]
+   for inicial in nomes:     #Para cada nome pegar a primeira letra
+      login = login + inicial[0]  #Juntar cada letra com o login
       pass
-   login = login+str(contrato)
+   login = login+str(contrato) #Juntar o login com o id do contrato
    return login
 
 
 
-def verificarcontrato(navegador):
-
-   return
 
 def verificar_contratos(contrato,navegador):
    for i in range(12):
