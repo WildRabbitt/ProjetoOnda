@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 email = 'thiago@ondaagil.com.br'  # input("Digite aqui seu e-mail: ")
 senha = '4815162342'  # input("Digite aqui a sua senha: ")
 statuscontr = ''
-row = '1'
+
 
 navegador: WebDriver = webdriver.Edge()
 navegador.get('https://ondaagilixc.com.br/login.php')
@@ -34,7 +34,9 @@ sleep(1)
 navegador.find_element(By.XPATH, '/html/body/div[2]/div/div[3]/table/tbody/tr/td[5]/div[1]/input[1]').click()
 sleep(1.5)
 
-while row != 0:
+row = '1' #Linha das criações de login
+
+while row != '0':
         xpathlog = '/html/body/div[2]/div/div[6]/table/tbody/tr[' + row + ']/td[1]/div'
 
         navegador.find_element(By.XPATH, xpathlog).click()
@@ -52,7 +54,7 @@ while row != 0:
         print("Nome é:",nome)
         sleep(1)
 
-        rowcont = '1'
+        rowcont = '1' #Linha de verificação dos contratos
         xpathcont_stats = '/html/body/form[3]/div[3]/div[7]/dl/div/div/div[5]/table/tbody/tr/td[3]/div/span'
         xpathcont_id = '/html/body/form[3]/div[3]/div[7]/dl/div/div/div[5]/table/tbody/tr/td[1]/div'
         sleep(2)
@@ -71,6 +73,21 @@ while row != 0:
         print("Numero contrato é "+idcont)
         login = gerar_login(nome,idcont)
         print(login)
+
+        #Vai pra aba de Login (/html/body/form[3]/div[3]/ul/li[8]/a)
+        # CLICAR EM NOVO (/html/body/form[3]/div[3]/div[8]/dl/div/div/div[3]/div[1]/button[1])
+        #pREENCHER O ID CONTRATO:  (/html/body/form[4]/div[3]/div[1]/dl[7]/dd/input[1])
+        #Selecionar o plano (botao de pesquisa (/html/body/form[4]/div[3]/div[1]/dl[10]/dd/button[2]))
+        #Selecionar o plano (Botao de atualizar (/html/body/div[14]/div/div[3]/span[1]/i[3])
+        #Selecionar o plano (Primeira linha(/html/body/div[14]/div/div[6]/table/tbody/tr/td[2]/div)
+        #Preencher o login (/html/body/form[4]/div[3]/div[1]/dl[11]/dd/input)
+        #Preencher a senha (/html/body/form[4]/div[3]/div[1]/dl[14]/dd/button[1])
+        #Salvar (/html/body/form[4]/div[2]/button[2])
+        #Botaão fechar login(/html/body/form[4]/div[1]/div[3]/a[4])
+        #Botao fechar cliente (/html/body/form[3]/div[1]/div[3]/a[4])
+
+
+
 
 
 
