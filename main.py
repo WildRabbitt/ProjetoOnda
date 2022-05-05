@@ -73,23 +73,35 @@ while row != '0':
         print("Numero contrato é "+idcont)
         login = gerar_login(nome,idcont)
         print(login)
-
-        #Vai pra aba de Login (/html/body/form[3]/div[3]/ul/li[8]/a)
-        # CLICAR EM NOVO (/html/body/form[3]/div[3]/div[8]/dl/div/div/div[3]/div[1]/button[1])
-        #pREENCHER O ID CONTRATO:  (/html/body/form[4]/div[3]/div[1]/dl[7]/dd/input[1])
-        #Selecionar o plano (botao de pesquisa (/html/body/form[4]/div[3]/div[1]/dl[10]/dd/button[2]))
-        #Selecionar o plano (Botao de atualizar (/html/body/div[14]/div/div[3]/span[1]/i[3])
-        #Selecionar o plano (Primeira linha(/html/body/div[14]/div/div[6]/table/tbody/tr/td[2]/div)
-        #Preencher o login (/html/body/form[4]/div[3]/div[1]/dl[11]/dd/input)
-        #Preencher a senha (/html/body/form[4]/div[3]/div[1]/dl[14]/dd/button[1])
-        #Salvar (/html/body/form[4]/div[2]/button[2])
-        #Botaão fechar login(/html/body/form[4]/div[1]/div[3]/a[4])
-        #Botao fechar cliente (/html/body/form[3]/div[1]/div[3]/a[4])
-
-
-
-
-
+        navegador.find_element(By.XPATH,'/html/body/form[3]/div[3]/ul/li[8]/a').click() #Vai pra aba de Login (/html/body/form[3]/div[3]/ul/li[8]/a)
+        sleep(1.5)
+        navegador.find_element(By.XPATH,'/html/body/form[3]/div[3]/div[8]/dl/div/div/div[3]/div[1]/button[1]').click() # CLICAR EM NOVO (/html/body/form[3]/div[3]/div[8]/dl/div/div/div[3]/div[1]/button[1])
+        sleep(1.5)
+        navegador.find_element(By.XPATH,'/html/body/form[4]/div[3]/div[1]/dl[7]/dd/input[1]').send_keys(idcont) #pREENCHER O ID CONTRATO:  (/html/body/form[4]/div[3]/div[1]/dl[7]/dd/input[1])
+        sleep(1.5)
+        navegador.find_element(By.XPATH,'/html/body/form[4]/div[3]/div[1]/dl[10]/dd/button[2]').click() #Selecionar o plano (botao de pesquisa (/html/body/form[4]/div[3]/div[1]/dl[10]/dd/button[2]))
+        sleep(1.5)
+        navegador.find_element(By.XPATH,'/html/body/div[12]/div/div[3]/span[1]/i[3]').click()#Selecionar o plano (Botao de atualizar (/html/body/div[14]/div/div[3]/span[1]/i[3])
+        sleep(2)
+       # navegador.find_element(By.XPATH,'/html/body/div[12]/div/div[6]/table/tbody/tr/td[1]/div').click()  #Selecionar o plano (Primeira linha(/html/body/div[14]/div/div[6]/table/tbody/tr/td[2]/div)
+        sleep(1)
+        navegador.find_element(By.XPATH,'/html/body/div[16]/div/div[2]/div[1]/button[2]').click() #Inserir Registro de plano
+        sleep(1)
+        navegador.find_element(By.XPATH,'/html/body/div[14]/div/div[1]/div[2]/a[2]').click() #Fechar aba do Plano
+        sleep(1)
+        navegador.find_element(By.XPATH,'/html/body/form[4]/div[3]/div[1]/dl[11]/dd/input').send_keys(login) #Preencher o login (/html/body/form[4]/div[3]/div[1]/dl[11]/dd/input)
+        sleep(1)
+        navegador.find_element(By.XPATH,'/html/body/form[4]/div[3]/div[1]/dl[14]/dd/button[1]').click() #Preencher a senha (/html/body/form[4]/div[3]/div[1]/dl[14]/dd/button[1])
+        sleep(0.5)
+        print("Não salva ainda")
+        #navegador.find_element(By.XPATH,'/html/body/form[4]/div[2]/button[2]').click()  #Salvar (/html/body/form[4]/div[2]/button[2])
+        sleep(1.5)
+        navegador.find_element(By.XPATH,'/html/body/form[4]/div[1]/div[3]/a[4]').click()    #Botaão fechar login(/html/body/form[4]/div[1]/div[3]/a[4])
+        sleep(0.5)
+        navegador.find_element(By.XPATH,'/html/body/form[3]/div[1]/div[3]/a[4]').click()    #Botao fechar cliente (/html/body/form[3]/div[1]/div[3]/a[4])
+        sleep(0.5)
+        navegador.find_element(By.XPATH,'/html/body/form[2]/div[1]/div[3]/a[3]').click()    #Botão fechar Ordem de Serviço(/html/body/form[2]/div[1]/div[3]/a[3])
+        row += 1
 
 
 
