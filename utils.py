@@ -1,8 +1,4 @@
-from builtins import str
-from time import sleep
-import random
-import string
-from utils import *
+import pandas as pd
 from selenium import webdriver
 from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.common.by import By
@@ -52,10 +48,13 @@ def verificar_contratos(contrato,navegador):
          pass
       pass
 
-tamanho = 10
-valores = string.ascii_lowercase + string.digits + string.ascii_uppercase
-senha = ''
-for i in range(tamanho):
-  senha += random.choice(valores)
+def geradorsenha():
+   tamanho = 10
+   valores = string.ascii_lowercase + string.digits + string.ascii_uppercase
+   senha = ''
+   for i in range(tamanho):
+     senha += random.choice(valores)
 
-print(senha)
+   print(senha)
+
+
