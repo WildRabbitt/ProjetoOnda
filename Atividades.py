@@ -112,11 +112,33 @@ def atividade05 ():
     print("\n")
     pass
 
+def insere(estrutura,elemento):
+    estrutura.append(elemento)
+    print(estrutura)
+    return estrutura
+def remove(estrutura):
+    if len(estrutura)>0:
+        return estrutura.pop()
+    else:
+        print("erro")
+
+
 
 
 
 #Main
-numatividade = int(input("Digite o numero da atividade desejada"))
+estrutura =[]
+insere(estrutura,1)
+insere(estrutura,22)
+insere(estrutura,333)
+insere(estrutura,4444)
+while (len(estrutura)>0):
+    print(remove(estrutura))
+
+
+numatividade = None #int(input("Digite o numero da atividade desejada"))
+
+
 
 if numatividade == 1:
     atividade01()

@@ -1,7 +1,5 @@
-import pandas as pd
-from selenium import webdriver
-from selenium.webdriver.chrome.webdriver import WebDriver
-from selenium.webdriver.common.by import By
+
+import random
 def inciarnav():
    WebDriver = webdriver.Edge()
    return WebDriver
@@ -58,3 +56,41 @@ def geradorsenha():
    print(senha)
 
 
+#https://brasilescola.uol.com.br/matematica/teorema-laplace.htm link das parada
+#i == linha
+#j == coluna
+                        #colunas        #linhas
+MATRIZ = [[0 for x in range(5)] for y in range(5)] #MATRIZ COMPLETA
+matriz = [[0 for x in range(4)] for y in range(5)] #matriz sem a primeira coluna
+column = [[0 for x in range(1)] for y in range(5)] #primeira coluna
+linha = [[0 for x in range(5)] for y in range(1)] #primeira linha
+
+for i in range(0,len(MATRIZ)): #Preencher MATRIZ
+
+    for j in range(0,len(MATRIZ[i])):
+        LINHA = random.randint(1,5)    #Preencher as linhas da MATRIZ
+        MATRIZ[i][j] = LINHA
+        column[i][0] = MATRIZ[i][0]
+        if j>0:
+            matriz[i][j-1] = MATRIZ[i][j]
+        if i == 0:
+            linha[i][j] = MATRIZ[i][j]
+
+
+
+def imprimirmatriz3(matriz5):
+   for i in range(len(matriz5)):
+      for j in range(0, len(matriz5[i])):
+         print(matriz5[i][j], end='  ')
+      print()
+      pass
+   pass
+
+print('MATRIZ COMPLETA')
+imprimirmatriz3(MATRIZ)
+print('\nMATRIZ SEM PRIMEIRA COLUNA')
+imprimirmatriz3(matriz)
+print('MATRIZ PRIMEIRA COLUNA')
+imprimirmatriz3(column)
+print('MATRIZ LINHA')
+imprimirmatriz3(linha)
